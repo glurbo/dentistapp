@@ -2,6 +2,16 @@
 <body>
 <form action="#" th:action="@{/}" th:object="${dentistVisitDTO}" method="post">
     <table>
+<!--        <tr>-->
+<!--            <td><p th:text="#{dentist.name}">dentist.name</p></td>-->
+<!--            <td>-->
+<!--                <select th:field="*{dentistName}"></select>-->
+<!--                <option th:each="dentist : ${getAllDentists}" th:value="${dentist.name}" th:text="${dentist.name}">dentist.name</option>-->
+<!--            </td>-->
+<!--            <td th:if="${#fields.hasErrors('dentistName')}" th:errors="*{dentistName}">name.error</td>-->
+<!--        </tr>-->
+
+
         <tr>
             <td><p th:text="#{dentist.name}">dentist.name</p></td>
             <td><input type="text" th:field="*{dentistName}"/></td>
@@ -9,8 +19,8 @@
         </tr>
         <tr>
             <td><p th:text="#{visit.date}">visit.date</p></td>
-            <td><input type="text" th:field="*{visitTime}"/></td>
-            <td th:if="${#fields.hasErrors('visitTime')}" th:errors="*{visitTime}">date.error</td>
+            <td><input type="datetime-local" th:field="*{visitDate}"/></td>
+            <td th:if="${#fields.hasErrors('visitDate')}" th:errors="*{visitDate}">date.error</td>
         </tr>
         <tr>
             <td>

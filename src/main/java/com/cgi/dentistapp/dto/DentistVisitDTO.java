@@ -4,7 +4,16 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.sql.Time;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Locale;
 
 public class DentistVisitDTO {
 
@@ -13,14 +22,15 @@ public class DentistVisitDTO {
 
     @NotNull
     @DateTimeFormat(pattern = "dd.MM.yyyy")
-    Date visitTime;
+    LocalDateTime visitDate;
+//    String visitTime;
 
     public DentistVisitDTO() {
     }
 
-    public DentistVisitDTO(String dentistName, Date visitTime) {
+    public DentistVisitDTO(String dentistName, String visitDate) {
         this.dentistName = dentistName;
-        this.visitTime = visitTime;
+        this.visitDate = LocalDateTime.parse(visitDate, DateTimeFormatter.ISO_DATE_TIME);
     }
 
     public String getDentistName() {
@@ -31,11 +41,11 @@ public class DentistVisitDTO {
         this.dentistName = dentistName;
     }
 
-    public Date getVisitTime() {
-        return visitTime;
+    public LocalDateTime getVisitDate() {
+        return visitDate;
     }
 
-    public void setVisitTime(Date visitTime) {
-        this.visitTime = visitTime;
+    public void setVisitDate(String visitDate) {
+        this.visitDate = LocalDateTime.parse(visitDate, DateTimeFormatter.ISO_DATE_TIME);
     }
 }
