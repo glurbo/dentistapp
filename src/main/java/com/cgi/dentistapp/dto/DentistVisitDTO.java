@@ -18,8 +18,6 @@ import java.util.Locale;
 
 public class DentistVisitDTO {
 
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long dentistVisit_id;

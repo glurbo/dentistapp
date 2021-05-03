@@ -1,4 +1,4 @@
 INSERT INTO dentist (name) VALUES
-('Esimene Hambaarst'),
-('Teine Hambaarst'),
-('Kolmas Hambaarst');
+('Hambaarst Vello'),
+('Hambaarst Teine'),
+('Hambaarst Ants');

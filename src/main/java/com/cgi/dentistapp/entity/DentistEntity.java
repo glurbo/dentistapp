@@ -24,9 +24,4 @@ public class DentistEntity {
     public String getName() {
         return name;
     }
-
-    public void setDentistName(String name) {
-        this.name = name;
-    }
-
 }

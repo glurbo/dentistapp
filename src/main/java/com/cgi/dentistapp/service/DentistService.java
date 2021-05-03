@@ -18,14 +18,4 @@ public class DentistService {
     public Iterable<DentistEntity> findAllDentists() {
         return repo.findAll();
     }
-
-    public DentistEntity findDentistByName(String name) {
-        return repo.findByName(name);
-    }
-
-    public DentistEntity findDentistById(Long id) {
-        return repo.findOne(id);
-    }
-
-//    @Query("from Alien where tech=?1 order by aname")
 }
