@@ -1,33 +1,65 @@
 <html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring MVC</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+</head>
 <body>
-<form action="#" th:action="@{/}" th:object="${dentistVisitDTO}" method="post">
-    <table>
-<!--        <tr>-->
-<!--            <td><p th:text="#{dentist.name}">dentist.name</p></td>-->
-<!--            <td>-->
-<!--                <select th:field="*{dentistName}"></select>-->
-<!--                <option th:each="dentist : ${getAllDentists}" th:value="${dentist.name}" th:text="${dentist.name}">dentist.name</option>-->
-<!--            </td>-->
-<!--            <td th:if="${#fields.hasErrors('dentistName')}" th:errors="*{dentistName}">name.error</td>-->
-<!--        </tr>-->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+            <a class="nav-link" th:href="@{/}" th:text="#{menuitem.form}">menuitem.form</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/registrations}" th:text="#{menuitem.registrations}">menuitem.registrations</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="mx-auto" style="width: 600px;">
+    <form action="#" th:action="@{/}" th:object="${dentistVisitDTO}" method="post">
+        <table  style="margin: 10px;">
+            <tr>
+                <td><p th:text="#{dentist.name}">dentist.name</p></td>
+                <td>
+                    <select th:field="*{dentistName}" >
+                        <option value="">&nbsp;</option>
+                        <option th:each="dentist : ${dentists}" th:value="${dentist.name}" th:text="${dentist.name}"></option>
+                    </select>
+                </td>
+                <td th:if="${#fields.hasErrors('dentistName')}" th:errors="*{dentistName}">name.error</td>
+            </tr>
+
+            <tr>
+                <td><p th:text="#{visit.date}">visit.date</p></td>
+                <td><input type="date" th:field="*{visitDate}"/></td>
+                <td th:if="${#fields.hasErrors('visitDate')}" th:errors="*{visitDate}">date.error</td>
+            </tr>
+
+            <tr>
+                <td><p th:text="#{visit.time}">visit.time</p></td>
+                <td><input type="time" min="09:00" max="18:00" th:field="*{visitTime}"/></td>
+                <td th:if="${#fields.hasErrors('visitTime')}" th:errors="*{visitTime}">time.error</td>
+            </tr>
+
+            <tr>
+                <td>
+                    <button class="btn btn-primary" type="submit" th:text="#{register.visit}"></button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
 
 
-        <tr>
-            <td><p th:text="#{dentist.name}">dentist.name</p></td>
-            <td><input type="text" th:field="*{dentistName}"/></td>
-            <td th:if="${#fields.hasErrors('dentistName')}" th:errors="*{dentistName}">name.error</td>
-        </tr>
-        <tr>
-            <td><p th:text="#{visit.date}">visit.date</p></td>
-            <td><input type="datetime-local" th:field="*{visitDate}"/></td>
-            <td th:if="${#fields.hasErrors('visitDate')}" th:errors="*{visitDate}">date.error</td>
-        </tr>
-        <tr>
-            <td>
-                <button type="submit" th:text="#{register.visit}"></button>
-            </td>
-        </tr>
-    </table>
-</form>
+
+
+
+
+<script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js">
+</script>
 </body>
 </html>

@@ -1,0 +1,47 @@
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <title>Spring MVC</title>
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" th:href="@{/}" th:text="#{menuitem.form}">menuitem.form</a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link" th:href="@{/registrations}" th:text="#{menuitem.registrations}">menuitem.registrations</a>
+    </li>
+  </ul>
+</nav>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th >#</th>
+      <th th:text="#{dentist.name}">dentist.name</th>
+      <th th:text="#{visit.date}">visit.date</th>
+      <th th:text="#{visit.time}">visit.time</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="dentistvisit: ${dentistvisits}">
+      <td th:text="${dentistvisit.dentistVisit_id}"></td>
+      <td th:text="${dentistvisit.dentistName}"></td>
+      <td th:text="${dentistvisit.visitDate}"></td>
+      <td th:text="${dentistvisit.visitTime}"></td>
+
+      <td>
+        <a th:href="@{/delete/__${dentistvisit.dentistVisit_id}__}" class="btn btn-danger">Delete</a>
+      </td>
+    </tr>
+  </tbody>
+
+
+</table>
+</body>
+</html>

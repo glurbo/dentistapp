@@ -11,7 +11,7 @@ public class DentistEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long dentist_id;
+    private Long id;
 
     @Size(min = 1, max = 50)
     @NotNull
