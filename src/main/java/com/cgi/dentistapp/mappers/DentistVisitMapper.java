@@ -4,6 +4,7 @@ import com.cgi.dentistapp.dto.DentistVisitDTO;
 import com.cgi.dentistapp.entity.DentistEntity;
 import com.cgi.dentistapp.entity.DentistVisitEntity;
 
+// manually mapping between DTO and entity
 public class DentistVisitMapper {
 
     public DentistVisitDTO toDto(DentistVisitEntity entity) {

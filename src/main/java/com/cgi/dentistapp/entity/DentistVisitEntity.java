@@ -1,14 +1,10 @@
 package com.cgi.dentistapp.entity;
 
-import org.apache.catalina.Store;
 import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.Date;
 
 @Entity
 @Table(name = "dentist_visit")
